@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.bingo.project</groupId>
+		<artifactId>bingo-bomb</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.bingo.project.chaos</groupId>
+	<artifactId>bingo-bomb-chaos</artifactId>
+	<name>bingo-bomb-chaos</name>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>bingo-bomb-chaos-repository</module>
+		<module>bingo-bomb-chaos-service</module>
+		<module>bingo-bomb-chaos-rpc-api</module>
+		<module>bingo-bomb-chaos-rpc-service</module>
+		<module>bingo-bomb-chaos-bootstrap</module>
+		<module>bingo-bomb-chaos-restful-api</module>
+	</modules>
+</project>
