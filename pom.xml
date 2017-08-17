@@ -4,7 +4,11 @@
 
 	<groupId>com.bingo.project</groupId>
 	<artifactId>bingo-bomb</artifactId>
+<<<<<<< HEAD
+	<version>${app.version}</version>
+=======
 	<version>0.0.1-SNAPSHOT</version>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 	<packaging>pom</packaging>
 	<name>bomb</name>
 	
@@ -28,6 +32,10 @@
 	</developers>
 	
 	<properties>
+<<<<<<< HEAD
+	    <app.version>0.0.1-SNAPSHOT</app.version>
+=======
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.test.version>4.12</junit.test.version>
 		<maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
@@ -55,6 +63,10 @@
 		<dubbo_version>2.5.3</dubbo_version>
 		<bytetcc_version>0.3.1</bytetcc_version>
 		<zkclient_version>0.10</zkclient_version>
+<<<<<<< HEAD
+		<shiro.version>1.3.2</shiro.version>
+=======
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 	</properties>
 
 	<dependencies>
@@ -251,6 +263,14 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+<<<<<<< HEAD
+			<dependency>
+			    <groupId>org.apache.shiro</groupId>
+			    <artifactId>shiro-core</artifactId>
+			    <version>${shiro.version}</version>
+			</dependency>
+=======
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 		</dependencies>
 	</dependencyManagement>
 	
@@ -261,6 +281,12 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+<<<<<<< HEAD
+			<properties>  
+                <profiles.active>dev</profiles.active>  
+            </properties>  
+=======
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 			<build>
 				<resources>
 					<resource>
@@ -295,6 +321,12 @@
 		</profile>
 		<profile>
 			<id>test</id>
+<<<<<<< HEAD
+			<properties>  
+                <profiles.active>test</profiles.active>  
+            </properties>  
+=======
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 			<build>
 				<resources>
 					<resource>
@@ -329,6 +361,12 @@
 		</profile>
 		<profile>
 			<id>prod</id>
+<<<<<<< HEAD
+			<properties>  
+                <profiles.active>prod</profiles.active>  
+            </properties>  
+=======
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 			<build>
 				<resources>
 					<resource>
@@ -363,9 +401,27 @@
 		</profile>
 	</profiles>
 
+<<<<<<< HEAD
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>dev/*</exclude>
+					<exclude>test/*</exclude>
+					<exclude>prod/*</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources/${profiles.active}</directory>
+			</resource>
+		</resources>  
+=======
 	
 
 	<build>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -380,11 +436,20 @@
 		</plugins>
 
 	</build>
+<<<<<<< HEAD
+=======
 	
 	   
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 
 	<modules>
 		<module>bingo-bomb-commons</module>
 		<module>bingo-bomb-chaos</module>
+<<<<<<< HEAD
+		<module>bingo-bomb-shiro</module>
 	</modules>
 </project>
+=======
+	</modules>
+</project>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d

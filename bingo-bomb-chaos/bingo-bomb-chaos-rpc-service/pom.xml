@@ -5,7 +5,11 @@
   <parent>
     <groupId>com.bingo.project.chaos</groupId>
     <artifactId>bingo-bomb-chaos</artifactId>
+<<<<<<< HEAD
+    <version>${app.version}</version>
+=======
     <version>0.0.1-SNAPSHOT</version>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
   </parent>
   <artifactId>bingo-bomb-chaos-rpc-service</artifactId>
   <name>bingo-bomb-chaos-rpc-service</name>
@@ -14,12 +18,20 @@
 	<dependency>
 		<groupId>com.bingo.project.chaos</groupId>
 		<artifactId>bingo-bomb-chaos-rpc-api</artifactId>
+<<<<<<< HEAD
+		<version>${app.version}</version>
+=======
 		<version>0.0.1-SNAPSHOT</version>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 	</dependency>
 	<dependency>
 		<groupId>com.bingo.project.chaos</groupId>
 		<artifactId>bingo-bomb-chaos-service</artifactId>
+<<<<<<< HEAD
+		<version>${app.version}</version>
+=======
 		<version>0.0.1-SNAPSHOT</version>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 	</dependency>
 	<dependency>
 		<groupId>org.bytesoft</groupId>

@@ -5,7 +5,11 @@
   <parent>
     <groupId>com.bingo.project.chaos</groupId>
     <artifactId>bingo-bomb-chaos</artifactId>
+<<<<<<< HEAD
+    <version>${app.version}</version>
+=======
     <version>0.0.1-SNAPSHOT</version>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
   </parent>
   <artifactId>bingo-bomb-chaos-bootstrap</artifactId>
   <name>bingo-bomb-chaos-bootstrap</name>
@@ -14,13 +18,24 @@
 	<dependency>
 		<groupId>com.bingo.project.chaos</groupId>
 		<artifactId>bingo-bomb-chaos-rpc-service</artifactId>
+<<<<<<< HEAD
+		<version>${app.version}</version>
+=======
 		<version>0.0.1-SNAPSHOT</version>
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 	</dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-test</artifactId>
 	</dependency>
 	<dependency>
+<<<<<<< HEAD
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+	</dependency>
+	<dependency>
+=======
+>>>>>>> 1e5f34d3a093a081f6841963877d0bf35188bb5d
 		<groupId>com.alibaba</groupId>
 		<artifactId>dubbo</artifactId>
 	</dependency>
