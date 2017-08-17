@@ -5,7 +5,12 @@ import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
+/**
+ * 用户restful接口测试
+ * @author jiangchangcheng  
+ * @date 2017年8月17日 下午1:12:30
+ * @since JDK 1.7
+ */
 public class TestUserRestfulApi extends ConfigMainTest {
 	@Test
 	public void testfindByUserId() throws Exception {
