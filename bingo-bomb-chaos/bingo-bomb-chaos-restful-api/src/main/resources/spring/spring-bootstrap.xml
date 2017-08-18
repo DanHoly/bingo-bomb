@@ -14,8 +14,9 @@
 		<property name="encoding" value="UTF-8" />
 		<property name="forceEncoding" value="true" />
 	</bean>
-
+	
 	<import resource="spring-dubbo.xml"/>
 	<import resource="spring-mvc.xml"/>
+	<import resource="classpath*:/spring/spring-shiro.xml" />
 	
 </beans>

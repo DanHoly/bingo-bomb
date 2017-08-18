@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
 
-import org.bingo.bomb.commons.utils.DigitConstant;
-
 import com.alibaba.fastjson.JSON;
 
 /**
@@ -26,7 +24,7 @@ public class BaseRpcVo implements Serializable {
 	/**
 	 * 0已删除 1有效
 	 */
-	private Short active = DigitConstant.SHORT_ONE;
+	private int active = 1;
 
 	/**
 	 * 数据版本
@@ -48,11 +46,8 @@ public class BaseRpcVo implements Serializable {
 	 */
 	private Date modifyTime;
 
-	/**
-	 * 更新人Id
-	 */
 	private BigInteger modifyUserId;
-
+	
 	public BigInteger getId() {
 		return id;
 	}
@@ -60,20 +55,20 @@ public class BaseRpcVo implements Serializable {
 	public void setId(BigInteger id) {
 		this.id = id;
 	}
-
-	public Short getActive() {
+	
+	public int getActive() {
 		return active;
 	}
 
-	public void setActive(Short active) {
+	public void setActive(int active) {
 		this.active = active;
 	}
 
-	public Long getVersion() {
+	public long getVersion() {
 		return version;
 	}
 
-	public void setVersion(Long version) {
+	public void setVersion(long version) {
 		this.version = version;
 	}
 

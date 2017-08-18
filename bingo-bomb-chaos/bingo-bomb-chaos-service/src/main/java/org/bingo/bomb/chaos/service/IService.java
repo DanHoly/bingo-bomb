@@ -47,6 +47,14 @@ public interface IService<V extends AbstractBaseEntity, ID extends Serializable>
 	 * @return
 	 */
 	public V findById(ID id);
+	
+	/**
+	 * 根据id查找
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public V findByCondition(V v);
 
 	/**
 	 * 根据id删除

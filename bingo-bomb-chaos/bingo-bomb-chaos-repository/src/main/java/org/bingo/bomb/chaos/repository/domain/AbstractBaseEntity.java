@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import org.bingo.bomb.commons.utils.DigitConstant;
+import org.bingo.bomb.commons.utils.Utils;
 
 /**
  * Entity基类
@@ -18,7 +19,7 @@ import org.bingo.bomb.commons.utils.DigitConstant;
  * @since JDK 1.7
  */
 @MappedSuperclass
-public abstract class AbstractBaseEntity implements Serializable, Comparable<AbstractBaseEntity> {
+public abstract class AbstractBaseEntity implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -34,7 +35,7 @@ public abstract class AbstractBaseEntity implements Serializable, Comparable<Abs
 	 * 0已删除 1有效
 	 */
 	@Column(name = "active")
-	private Short active = DigitConstant.SHORT_ONE;
+	private short active = DigitConstant.SHORT_ONE;
 
 	/**
 	 * 数据版本
@@ -74,11 +75,11 @@ public abstract class AbstractBaseEntity implements Serializable, Comparable<Abs
 		this.id = id;
 	}
 
-	public Short getActive() {
+	public short getActive() {
 		return active;
 	}
 
-	public void setActive(Short active) {
+	public void setActive(short active) {
 		this.active = active;
 	}
 
@@ -123,14 +124,7 @@ public abstract class AbstractBaseEntity implements Serializable, Comparable<Abs
 	}
 
 	@Override
-	public int compareTo(AbstractBaseEntity abstractBaseEntity) {
-		return this.id.compareTo(abstractBaseEntity.getId());
-	}
-
-	@Override
 	public String toString() {
-		return "AbstractBaseEntity [id=" + id + ", active=" + active + ", version=" + version + ", createTime="
-				+ createTime + ", createUserId=" + createUserId + ", modifyTime=" + modifyTime + ", modifyUserId="
-				+ modifyUserId + "]";
+		return Utils.json(this);
 	}
 }

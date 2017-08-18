@@ -13,8 +13,8 @@ package org.bingo.bomb.chaos.service.user;
 import java.math.BigInteger;
 
 import org.bingo.bomb.chaos.bootstrap.ConfigMainTest;
-import org.bingo.bomb.chaos.rpc.api.user.IUserRpcService;
-import org.bingo.bomb.chaos.rpc.api.vo.user.UserRpcVo;
+import org.bingo.bomb.chaos.rpc.api.system.IUserRpcService;
+import org.bingo.bomb.chaos.rpc.api.vo.system.UserRpcVo;
 import org.bingo.bomb.commons.utils.Utils;
 import org.junit.Test;
 
@@ -32,7 +32,9 @@ public class UserRpcServiceTest extends ConfigMainTest {
 	
 	@Test
 	public void testFindById(){
-		UserRpcVo userRpcVo = userRpcService.findById(new BigInteger("27613346230685810337309166528"));
-		logger.info("userRpcVo:" + Utils.json(userRpcVo));
+		UserRpcVo userRpcVo = userRpcService.findById(new BigInteger("1"));
+		if(userRpcVo != null){
+			logger.info("userRpcVo:" + Utils.json(userRpcVo));
+		}
 	}
 }

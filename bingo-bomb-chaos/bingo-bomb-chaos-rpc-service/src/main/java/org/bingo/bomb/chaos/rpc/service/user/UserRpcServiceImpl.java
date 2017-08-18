@@ -11,11 +11,16 @@
 package org.bingo.bomb.chaos.rpc.service.user;
 
 import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.bingo.bomb.chaos.repository.domain.user.UserEntity;
-import org.bingo.bomb.chaos.rpc.api.user.IUserRpcService;
-import org.bingo.bomb.chaos.rpc.api.vo.user.UserRpcVo;
-import org.bingo.bomb.chaos.service.user.IUserService;
+import org.bingo.bomb.chaos.repository.domain.system.RoleEntity;
+import org.bingo.bomb.chaos.repository.domain.system.UserEntity;
+import org.bingo.bomb.chaos.rpc.api.system.IUserRpcService;
+import org.bingo.bomb.chaos.rpc.api.vo.system.UserRpcVo;
+import org.bingo.bomb.chaos.service.system.IRoleService;
+import org.bingo.bomb.chaos.service.system.IUserService;
 import org.bingo.bomb.commons.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,6 +37,9 @@ public class UserRpcServiceImpl implements IUserRpcService {
 	@Autowired
 	private IUserService userService;
 	
+	@Autowired
+	private IRoleService roleService;
+	
 	@Override
 	public UserRpcVo findById(BigInteger id) {
 		UserEntity entity = userService.findById(id);
@@ -41,6 +49,35 @@ public class UserRpcServiceImpl implements IUserRpcService {
 			return userRpcVo;
 		}
 		return null;
+	}
+
+	@Override
+	public UserRpcVo findByUserName(String userName) {
+		UserEntity entity = new UserEntity();
+		entity.setUserName(userName);
+		entity = userService.findByCondition(entity);
+		UserRpcVo userRpcVo = new UserRpcVo();
+		Utils.copyObject(entity, userRpcVo);
+		return userRpcVo;
+	}
+
+	@Override
+	public Set<String> findRoles(String userName) {
+		UserRpcVo vo = findByUserName(userName);
+		Set<String> set = new HashSet<String>();
+		set.addAll(Arrays.asList(vo.getRoleIds().split(",")));
+		return set;
+	}
+
+	@Override
+	public Set<String> findPermissions(String userName) {
+		UserRpcVo vo = findByUserName(userName);
+		Set<String> set = new HashSet<String>();
+		for(String roleId : vo.getRoleIds().split(",")){
+			RoleEntity role  = roleService.findById(new BigInteger(roleId));
+			set.addAll(Arrays.asList(role.getResourceIds().split(",")));
+		}
+		return set;
 	}
 
 }

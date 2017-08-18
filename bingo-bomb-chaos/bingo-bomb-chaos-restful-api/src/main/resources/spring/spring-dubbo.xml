@@ -8,5 +8,6 @@
 	<dubbo:registry address="${dubbo.registry.address}" check="${dubbo.registry.check}" file="dubbo-registry-file.properties" />
 
 	<dubbo:consumer timeout="300000" cluster="${dubbo.reference.cluster}" version="${dubbo.reference.version}" retries="${dubbo.reference.retries}" check="${dubbo.reference.check}" />
-	 
+	
+	<dubbo:reference id="userRpcService" interface="org.bingo.bomb.chaos.rpc.api.system.IUserRpcService"></dubbo:reference>
 </beans>

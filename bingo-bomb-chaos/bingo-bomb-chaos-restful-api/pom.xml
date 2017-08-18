@@ -10,11 +10,16 @@
 	</parent>
 	<artifactId>bingo-bomb-chaos-restful-api</artifactId>
 	<packaging>war</packaging>
-	<name>bingo-bomb-chaos-restful-api Maven Webapp</name>
+	<name>bingo-bomb-chaos-restful-api</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.bingo.project.chaos</groupId>
 			<artifactId>bingo-bomb-chaos-rpc-api</artifactId>
+			<version>${app.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bingo.project.chaos</groupId>
+			<artifactId>bingo-bomb-chaos-shiro</artifactId>
 			<version>${app.version}</version>
 		</dependency>
 		<dependency>
@@ -56,6 +61,26 @@
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
 		</dependency>
 	</dependencies>
 

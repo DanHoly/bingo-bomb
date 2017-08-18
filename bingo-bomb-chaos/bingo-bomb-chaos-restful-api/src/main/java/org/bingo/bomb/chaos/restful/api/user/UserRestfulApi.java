@@ -13,8 +13,8 @@ package org.bingo.bomb.chaos.restful.api.user;
 import java.math.BigInteger;
 
 import org.apache.log4j.Logger;
-import org.bingo.bomb.chaos.rpc.api.user.IUserRpcService;
-import org.bingo.bomb.chaos.rpc.api.vo.user.UserRpcVo;
+import org.bingo.bomb.chaos.rpc.api.system.IUserRpcService;
+import org.bingo.bomb.chaos.rpc.api.vo.system.UserRpcVo;
 import org.bingo.bomb.commons.utils.ObjectId;
 import org.bingo.bomb.commons.utils.Utils;
 import org.springframework.stereotype.Controller;

@@ -15,6 +15,7 @@
 	<packaging>pom</packaging>
 	
 	<modules>
+		<module>bingo-bomb-chaos-shiro</module>
 		<module>bingo-bomb-chaos-repository</module>
 		<module>bingo-bomb-chaos-service</module>
 		<module>bingo-bomb-chaos-rpc-api</module>

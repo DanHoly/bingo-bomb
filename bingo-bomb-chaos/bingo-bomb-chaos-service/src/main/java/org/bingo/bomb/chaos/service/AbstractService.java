@@ -113,9 +113,6 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 		if (e.getId() == null) {
 			e.setId(Utils.id());
 		}
-		if (e.getActive() == null) {
-			e.setActive(DigitConstant.SHORT_ONE);
-		}
 		e.setCreateTime(new Date());
 		e.setModifyTime(new Date());
 		e.setVersion(1L);
@@ -179,7 +176,15 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 			throw new DataFindException(e);
 		}
 	}
-
+	
+	@Override
+	@Transactional(readOnly = true)
+	public E findByCondition(E v) {
+		E entity = Utils.newInstanceClass(entityClass);
+		Example<E> example = Example.of(entity);
+		return repository.findOne(example);
+	}
+	
 	/**
 	 * 根据ID删除,线程安全,并发不高,可以根据业务在repository中自己实现
 	 */
@@ -193,7 +198,6 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 				E entity = Utils.newInstanceClass(entityClass);
 				entity.setId(BigInteger.class.cast(id));
 				entity.setVersion(version);
-				entity.setActive(null);
 				Example<E> example = Example.of(entity);
 				entity = repository.findOne(example);
 
@@ -203,11 +207,7 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 						repository.flush();
 					} else {
 						entity.setActive(DigitConstant.SHORT_ZERO);
-						if (entity.getVersion() == null) {
-							entity.setVersion(1L);
-						} else {
-							entity.setVersion(entity.getVersion() + 1L);
-						}
+						entity.setVersion(entity.getVersion() + 1L);
 						this.updateById(id, version, entity);
 					}
 				}
@@ -234,7 +234,7 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 					update.setCreateTime(entity.getCreateTime());
 					update.setModifyTime(new Date());
 					update.setId(entity.getId());
-					if (entity.getVersion() == null) {
+					if (entity.getVersion() == 0) {
 						update.setVersion(1L);
 					} else {
 						update.setVersion(entity.getVersion() + 1L);

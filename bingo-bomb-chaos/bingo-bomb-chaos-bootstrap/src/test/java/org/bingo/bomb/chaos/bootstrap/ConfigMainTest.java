@@ -2,10 +2,9 @@ package org.bingo.bomb.chaos.bootstrap;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.bingo.bomb.commons.fix.SpringContextHolder;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = "classpath*:/spring/spring-bootstrap.xml")
 public abstract class ConfigMainTest {
 
-	protected final Logger logger = LoggerFactory.getLogger(getClass());
+	protected final Logger logger = Logger.getLogger(getClass());
 	
 	@Resource(name = "springContextHolder")
 	protected SpringContextHolder springContextHolder;
