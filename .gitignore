@@ -2,6 +2,6 @@
 .settings
 */target/*
 target
-*/logs
+*/logs/*
 *.classpath
 *.project
