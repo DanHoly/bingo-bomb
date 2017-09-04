@@ -11,6 +11,7 @@
 package org.bingo.bomb.chaos.shiro.constants;
 
 /**
+ * 常量
  * @author jiangchangcheng  
  * @date 2017年8月18日 下午3:27:29
  * @since JDK 1.7	
