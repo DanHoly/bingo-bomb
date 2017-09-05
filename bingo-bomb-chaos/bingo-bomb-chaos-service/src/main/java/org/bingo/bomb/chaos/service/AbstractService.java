@@ -132,13 +132,8 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 	@Override
 	public void save(List<E> list) {
 		if (list != null && !list.isEmpty()) {
-			List<E> entities = new ArrayList<E>();
-			try {
-				for (E entity : entities) {
-					repository.saveAndFlush(entity);
-				}
-			} catch (Exception e) {
-				throw new DataSaveException(e);
+			for (E entity : list) {
+				this.save(entity);
 			}
 		}
 	}
