@@ -229,11 +229,7 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 					update.setCreateTime(entity.getCreateTime());
 					update.setModifyTime(new Date());
 					update.setId(entity.getId());
-					if (entity.getVersion() == 0) {
-						update.setVersion(1L);
-					} else {
-						update.setVersion(entity.getVersion() + 1L);
-					}
+					update.setVersion(entity.getVersion() + 1L);
 					Utils.copyNotNullObject(update, entity);
 					repository.saveAndFlush(entity);
 				}
@@ -269,18 +265,17 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 		}
 		if (sort == null) {
 			sort = new Sort(Direction.DESC, "id");
-		} else {
-			List<Order> orders = new ArrayList<Order>();
-			Iterator<Order> iterator = sort.iterator();
-			while (iterator.hasNext()) {
-				Order order = iterator.next();
-				if (!"id".equals(order.getProperty())) {
-					orders.add(order);
-				}
+		} 
+		List<Order> orders = new ArrayList<Order>();
+		Iterator<Order> iterator = sort.iterator();
+		while (iterator.hasNext()) {
+			Order order = iterator.next();
+			if (!"id".equals(order.getProperty())) {
+				orders.add(order);
 			}
-			orders.add(0, new Order(Direction.DESC, "id"));
-			sort = new Sort(orders);
 		}
+		orders.add(0, new Order(Direction.DESC, "id"));
+		sort = new Sort(orders);
 		if (PagingAndSortingRepository.class.isAssignableFrom(repositoryClass)) {
 			PagingAndSortingRepository<E, ID> repository = PagingAndSortingRepository.class.cast(this.repository);
 			E entity = Utils.newInstanceClass(entityClass);
@@ -318,18 +313,17 @@ public abstract class AbstractService<E extends AbstractBaseEntity, ID extends S
 		}
 		if (sort == null) {
 			sort = new Sort(Direction.DESC, "id");
-		} else {
-			List<Order> orders = new ArrayList<Order>();
-			Iterator<Order> iterator = sort.iterator();
-			while (iterator.hasNext()) {
-				Order order = iterator.next();
-				if (!"id".equals(order.getProperty())) {
-					orders.add(order);
-				}
+		} 
+		List<Order> orders = new ArrayList<Order>();
+		Iterator<Order> iterator = sort.iterator();
+		while (iterator.hasNext()) {
+			Order order = iterator.next();
+			if (!"id".equals(order.getProperty())) {
+				orders.add(order);
 			}
-			orders.add(0, new Order(Direction.DESC, "id"));
-			sort = new Sort(orders);
 		}
+		orders.add(0, new Order(Direction.DESC, "id"));
+		sort = new Sort(orders);
 		if (PagingAndSortingRepository.class.isAssignableFrom(repositoryClass)) {
 			PagingAndSortingRepository<E, ID> repository = PagingAndSortingRepository.class.cast(this.repository);
 			return repository.findAll((Specification<E>) specification, new PageRequest(Utils.DEFAULT_PAGE, size, sort), minId);
